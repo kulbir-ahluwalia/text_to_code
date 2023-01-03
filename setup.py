@@ -7,7 +7,7 @@ setup(
     version="1.0",
     description="Source code for text to code project",
     author="Rhaldar Michael Kulbir",
-    packages=['text_to_code'],
+    packages=['seq_to_seq'],
     install_requires=[
         "jupyter",
         "torch",
