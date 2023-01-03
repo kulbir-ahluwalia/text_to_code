@@ -16,7 +16,7 @@ setup(
         "torchvision",
         "gdown==4.5.1",
     ],
-    package_data={'': ['./T5_sandbox/list_of_input_output_sequences_only.json']},
+    package_data={'': ['list_of_input_output_sequences_only.json']},
     include_package_data=True,
     extras_require={'dev': ['pytest']},
 )
