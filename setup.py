@@ -9,12 +9,11 @@ setup(
     author="Rhaldar Michael Kulbir",
     packages=['text_to_code'],
     install_requires=[
-        "jupyter==1.0.0",
+        "jupyter",
         "torch",
         "transformers",
         "torchaudio",
         "torchvision",
-        "gdown==4.5.1",
     ],
     package_data={'': ['list_of_input_output_sequences_only.json']},
     include_package_data=True,
