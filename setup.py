@@ -14,6 +14,7 @@ setup(
         "transformers",
         "torchaudio",
         "torchvision",
+        "jedi",
     ],
     package_data={'': ['list_of_input_output_sequences_only.json']},
     include_package_data=True,
