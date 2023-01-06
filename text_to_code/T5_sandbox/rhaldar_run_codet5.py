@@ -7,7 +7,7 @@ model = CodeT5Summ(pretrained_model="Salesforce/codegen-350M-mono")
 # model = CodeT5Summ(pretrained_model="Salesforce/codegen-2B-mono")
 # model = CodeT5Summ(pretrained_model="Salesforce/codet5-base-multi-sum")
 
-
+print("lkdsfjhglskdfjhgfdl: ", model.model.num_labels)
 with open("list_of_input_output_sequences_only.json", "r") as jsonDataset:
     nl_commands = []
     sequence_of_function_calls = []
@@ -29,7 +29,7 @@ batch_size = 2
 # descriptions = nl_commands[0]
 # model.train_minibatch(codes, descriptions)
 # for batch_idx in range(batch_size, len(nl_commands), batch_size):  # full loop
-for batch_idx in range(batch_size, 100, batch_size):  # smaller loop for puny laptop
+for batch_idx in range(batch_size, 900, batch_size):  # smaller loop for puny laptop
     print("batch training index: ", batch_idx-batch_size, "-", batch_idx)
     codes = sequence_of_function_calls[batch_idx-batch_size:batch_idx]
     # print(len(codes), codes)
