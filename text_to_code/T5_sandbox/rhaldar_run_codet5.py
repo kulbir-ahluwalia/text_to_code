@@ -7,7 +7,7 @@ model = CodeT5Summ(pretrained_model="Salesforce/codegen-350M-mono")
 # model = CodeT5Summ(pretrained_model="Salesforce/codegen-2B-mono")
 # model = CodeT5Summ(pretrained_model="Salesforce/codet5-base-multi-sum")
 
-print("lkdsfjhglskdfjhgfdl: ", model.model.num_labels)
+# print("lkdsfjhglskdfjhgfdl: ", model.model.num_labels)
 with open("list_of_input_output_sequences_only.json", "r") as jsonDataset:
     nl_commands = []
     sequence_of_function_calls = []
@@ -24,17 +24,21 @@ Together they constitute one minibatch
 # codes = ["print('hello world')", "a = b + c", "maximum = x if x > y else y"]
 # descriptions = ["print the message hello world", "add two numbers", "store the maximum of two numbers"]
 # training loop
-batch_size = 2
+batch_size = 5
 # codes = sequence_of_function_calls[0]
 # descriptions = nl_commands[0]
 # model.train_minibatch(codes, descriptions)
 # for batch_idx in range(batch_size, len(nl_commands), batch_size):  # full loop
-for batch_idx in range(batch_size, 900, batch_size):  # smaller loop for puny laptop
+for batch_idx in range(batch_size, 100, batch_size):  # smaller loop for puny laptop
     print("batch training index: ", batch_idx-batch_size, "-", batch_idx)
     codes = sequence_of_function_calls[batch_idx-batch_size:batch_idx]
-    # print(len(codes), codes)
+    print(f"len(codes): {len(codes)}")
+    print(f"codes: {codes}")
+
+
     descriptions = nl_commands[batch_idx-batch_size:batch_idx]
-    # print(len(descriptions), descriptions)
+    print(f"len(descriptions): {len(descriptions)}")
+    print(f"descriptions: {descriptions}")
     # codes and descriptions must be of the same length
     # assert len(codes) == len(descriptions)
 
@@ -42,7 +46,7 @@ for batch_idx in range(batch_size, 900, batch_size):  # smaller loop for puny la
     # print(codes, descriptions)
     model.train_minibatch(codes, descriptions)
 
-model.save(outpath="fine-tuned-model-weeding")
+# model.save(outpath="fine-tuned-model-weeding")
 
 # Translates one code snippet (Input is one string)
 # test_code = "['handler.http_request_api_points(args)', 'find_home(handler)', 'mount_tool(handler, \"weeder\")', 'weed_plants(handler, [[548.2,121.9,-160.9]])', 'dismount_tool(handler, \"weeder\")']"
